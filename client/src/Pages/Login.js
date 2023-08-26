@@ -30,7 +30,7 @@ function LoginPage() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-md mx-auto my-auto flex flex-col gap-4 my-20"
+      className="max-w-md mx-auto my-auto flex flex-col gap-4 my-16"
     >
       <h2 className="text-4xl text-gray-700 font-semibold my-4 text-center">
         Login
@@ -53,7 +53,7 @@ function LoginPage() {
           setEmail(e.target.value);
         }}
       />
-      <button className="border rounded-xl w-full py-2 bg-sky-600 text-white mx-auto">
+      <button className="border rounded-xl w-full py-2 bg-cyan-700 text-white mx-auto">
         Start
       </button>
     </form>

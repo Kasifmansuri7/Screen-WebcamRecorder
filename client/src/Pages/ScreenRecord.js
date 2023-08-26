@@ -56,7 +56,7 @@
 //         <div className="flex justify-between my-4">
 //           <div>
 //             {status && status !== "stopped" && (
-//               <button className="border rounded-lg bg-sky-600 p-2 text-white text-center">
+//               <button className="border rounded-lg bg-cyan-700 p-2 text-white text-center">
 //                 Screen Recording Status: {status && status.toUpperCase()}
 //               </button>
 //             )}

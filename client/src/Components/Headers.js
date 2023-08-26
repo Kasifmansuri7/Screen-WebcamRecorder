@@ -14,7 +14,7 @@ function Headers() {
     });
   }
   return (
-    <header className="bg-sky-600 py-6">
+    <header className="bg-cyan-700 py-6 h-24">
       <div className="flex justify-between px-10">
         <Link to="/" className=" text-white text-3xl font-semibold">
           Recording App
@@ -22,7 +22,7 @@ function Headers() {
         {user && (
           <Link>
             <button
-              className="text-sky-600 border rounded-xl p-2 bg-white"
+              className="text-cyan-700 border rounded-xl p-2 bg-white"
               onClick={handleLogout}
             >
               Logout
