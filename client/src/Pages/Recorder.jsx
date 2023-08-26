@@ -1,17 +1,21 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../userContext";
 import { useNavigate } from "react-router-dom";
-import { useReactMediaRecorder, ScreenRecording } from "react-media-recorder";
+import { useReactMediaRecorder } from "react-media-recorder";
 
-function WebCamRecorder() {
+function Recorder() {
+  const { user, ready } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user && ready) {
+      navigate("/login");
+    }
+  }, [user, ready]);
+
   const [record, setRecord] = useState(false);
   const { status, startRecording, stopRecording, mediaBlobUrl } =
     useReactMediaRecorder({ screen: !record, audio: true, video: record });
-  const { user } = useContext(UserContext);
-  const navigate = useNavigate();
-  if (!user) {
-    navigate("/login");
-  }
   return (
     <div className="my-12 px-4">
       <div className="text-center">
@@ -26,7 +30,7 @@ function WebCamRecorder() {
             {record ? "Record Camera" : "Record Screen"}
           </button>
         )}
-        {status != "recording" && (
+        {status !== "recording" && (
           <button
             className="border rounded-lg bg-green-600 p-2 text-white text-center mx-2"
             onClick={startRecording}
@@ -55,4 +59,4 @@ function WebCamRecorder() {
   );
 }
 
-export default WebCamRecorder;
+export default Recorder;

@@ -1,20 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import LoginPage from "./Pages/Login";
-import WebCamRecorder from "./Pages/WebCamRecorder";
+import Recorder from "./Pages/Recorder";
 import Layout from "./Layout";
 import axios from "axios";
 import UserContextProvider, { UserContext } from "./userContext";
-import {
-  RouterProvider,
-  createBrowserRouter,
-  redirect,
-} from "react-router-dom";
-import ScreenRecording from "./Pages/ScreenRecord";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 axios.defaults.baseURL = process.env.REACT_APP_API;
 axios.defaults.withCredentials = true;
 
 function App() {
+  const { user } = useContext(UserContext);
   const router = createBrowserRouter([
     {
       path: "/",
@@ -22,7 +18,7 @@ function App() {
       children: [
         {
           path: "/",
-          element: <WebCamRecorder />,
+          element: <Recorder />,
         },
         {
           path: "/login",

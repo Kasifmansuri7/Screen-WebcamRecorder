@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../userContext";
 import axios from "axios";
 
 function Headers() {
   const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
   async function handleLogout() {
     axios.post("/logout").then(() => {
       setUser(null);
+      navigate("/login");
     });
   }
   return (
